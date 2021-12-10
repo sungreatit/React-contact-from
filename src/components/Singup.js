@@ -53,46 +53,58 @@ const SignupForm = function SignupForm() {
             <From onSubmit={formik.handleSubmit}>
                 <label htmlFor="firstName">
                     First Name
-                    {formik.errors.firstName ? <Bage>{formik.errors.firstName}</Bage> : null}
+                    {formik.touched.firstName && formik.errors.firstName ? (
+                        <Bage>{formik.errors.firstName}</Bage>
+                    ) : null}
                 </label>
                 <input
                     id="firstName"
                     name="firstName"
                     type="text"
                     onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
                     value={formik.values.firstName}
                 />
 
                 <label htmlFor="lastName">
                     Last Name
-                    {formik.errors.lastName ? <Bage>{formik.errors.lastName}</Bage> : null}
+                    {formik.touched.lastName && formik.errors.lastName ? (
+                        <Bage>{formik.errors.lastName}</Bage>
+                    ) : null}
                 </label>
                 <input
                     id="lastName"
                     name="lastName"
                     type="text"
                     onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
                     value={formik.values.lastName}
                 />
 
                 <label htmlFor="email">
                     Email Address
-                    {formik.errors.email ? <Bage>{formik.errors.email}</Bage> : null}
+                    {formik.touched.email && formik.errors.email ? (
+                        <Bage>{formik.errors.email}</Bage>
+                    ) : null}
                 </label>
                 <input
                     id="email"
                     name="email"
                     type="email"
+                    onBlur={formik.handleBlur}
                     onChange={formik.handleChange}
                     value={formik.values.email}
                 />
                 <label htmlFor="message">
                     Message
-                    {formik.errors.message ? <Bage>{formik.errors.message}</Bage> : null}
+                    {formik.touched.message && formik.errors.message ? (
+                        <Bage>{formik.errors.message}</Bage>
+                    ) : null}
                 </label>
                 <textarea
                     name="message"
                     id="message"
+                    onBlur={formik.handleBlur}
                     placeholder="Your message here"
                     onChange={formik.handleChange}
                     value={formik.values.message}
